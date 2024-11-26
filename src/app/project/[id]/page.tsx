@@ -1,28 +1,32 @@
-'use client'
+// app/project/[id]/page.tsx
+
+export async function generateStaticParams() {
+    // Lista simulada de proyectos
+    const projects = [
+        { id: '1' },
+        { id: '2' },
+        { id: '3' },
+        { id: '4' },
+        { id: '5' },
+        { id: '6' },
+        { id: '7' },
+    ];
+
+    // Devuelve los parámetros necesarios para generar las páginas estáticas
+    return projects.map(project => ({
+        id: project.id,
+    }));
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from "react";
-
 
 interface ProjectPageProps {
-    params: Promise<{ id: string }>; // Make `params` a promise
+    params: { id: string };
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-    // Ensure params are resolved before rendering
-    const [projectParams, setProjectParams] = useState<{ id: string } | null>(null);
-
-    useEffect(() => {
-        params.then((resolvedParams) => {
-            setProjectParams(resolvedParams);
-        });
-    }, [params]);
-
-    if (!projectParams) {
-        return <div>Loading...</div>; // Handle loading state
-    }
-
-    const { id } = projectParams;
+    const { id } = params;
 
     // Simulación de los datos del proyecto
     const project = {
