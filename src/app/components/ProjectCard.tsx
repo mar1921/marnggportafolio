@@ -30,13 +30,13 @@ export default function ProjectCard({ project, isDarkMode }: ProjectCardProps) {
                 <p className={`mt-2 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                     {project.description}
                 </p>
-                <Link href={`/project/${project.id}`} passHref>
-                    <b
-                        className={`mt-4 inline-block text-blue-600 font-medium hover:underline transition-colors ${isDarkMode ? 'dark:text-blue-400' : 'text-blue-600'}`}
-                    >
-                        Ver más
-                    </b>
-                </Link>
+                {/* <Link href={`/project/primero`} passHref> */}
+                <b
+                    className={`mt-4 inline-block text-blue-600 font-medium hover:underline transition-colors ${isDarkMode ? 'dark:text-blue-400' : 'text-blue-600'}`}
+                >
+                    Ver más
+                </b>
+                {/* </Link> */}
             </div>
         </div>
     );
