@@ -1,101 +1,123 @@
+'use client'
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import ProjectCard from "@/app/components/ProjectCard";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  useEffect(() => {
+    // Revisa la preferencia del sistema
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDarkMode(prefersDarkMode);
+  }, []);
+
+  const projects = [
+    { id: 1, title: 'Proyecto 1', description: 'Descripción breve del proyecto 1', image: '/images/proyecto1.jpg' },
+    { id: 2, title: 'Proyecto 2', description: 'Descripción breve del proyecto 2', image: '/images/proyecto2.jpg' },
+    { id: 3, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+    { id: 4, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+    { id: 5, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+    { id: 6, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+    { id: 7, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+  ];
+
+  return (
+    <div style={{ overflow: 'hidden' }}
+      className={`min-h-screen px-16 pt-16 grid grid-rows-[auto_1fr_auto] font-sans transition-colors ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-900'}`}>
+      {/* Header */}
+      <header className="flex justify-between items-center w-full">
+        <h1 className="text-4xl font-bold sm:text-5xl">
+          Mariano Gandin</h1>
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="ml-4 p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors dark:bg-gray-300 dark:text-gray-900 dark:hover:bg-gray-400"
+        >
+          {isDarkMode ? <Image src="/sun.svg" alt="sun" width={30} height={30} /> : <Image src="/moon.svg" alt="moon" width={30} height={30} />}
+        </button>
+      </header>
+
+      {/* Main Section */}
+      <main className="flex flex-col items-center sm:items-start gap-2 mt-2">
+        {/* <Image
+          className="rounded-full dark:invert"
+          src="/profile.jpg"
+          alt="Tu nombre"
+          width={160}
+          height={160}
+          priority
+        /> */}
+        <p className="text-lg text-center ">
+          Desarrollador Web Full Stack en Laravel y en creación de aplicaciones modernas con tecnologías como Next.js, Node.js y TypeScript.
+        </p>
+
+        {/* Social Links */}
+        <div className="flex gap-2 items-center flex-col sm:flex-row">
+
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/tu-perfil"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <Image src="/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+            {/* className="filter dark:invert" /> */}
+            LinkedIn
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.mail.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
           >
-            Read our docs
+            <Image src="/mail.svg" alt="LinkedIn" width={20} height={20} />
+            Correo
+          </a>
+          <a
+            href="https://github.com/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
+          >
+            <Image src="/github.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
+            GitHub
           </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+      {/* Portfolio Section */}
+      <section className="container mx-auto mb-12 pb-12">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          pagination={true}
+          modules={[EffectCoverflow]}
+          className="mySwiper"
+          style={{ overflow: 'visible', width: '400px', height: 'auto' }}
+          initialSlide={2}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {projects.map((project) => (
+            <SwiperSlide key={project.id}>
+              <ProjectCard project={project} isDarkMode={isDarkMode} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
     </div>
   );
 }
