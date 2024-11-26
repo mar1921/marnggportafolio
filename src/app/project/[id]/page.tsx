@@ -1,14 +1,28 @@
-// src/app/project/[id]/page.tsx
-
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from "react";
+
 
 interface ProjectPageProps {
-    params: { id: string }; // El parámetro 'id' que pasas en la ruta
+    params: Promise<{ id: string }>; // Make `params` a promise
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-    const { id } = params;
+    // Ensure params are resolved before rendering
+    const [projectParams, setProjectParams] = useState<{ id: string } | null>(null);
+
+    useEffect(() => {
+        params.then((resolvedParams) => {
+            setProjectParams(resolvedParams);
+        });
+    }, [params]);
+
+    if (!projectParams) {
+        return <div>Loading...</div>; // Handle loading state
+    }
+
+    const { id } = projectParams;
 
     // Simulación de los datos del proyecto
     const project = {
