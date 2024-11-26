@@ -39,7 +39,7 @@ export default function Home() {
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="ml-4 p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors dark:bg-gray-300 dark:text-gray-900 dark:hover:bg-gray-400"
         >
-          {isDarkMode ? <Image src="/sun.svg" alt="sun" width={30} height={30} /> : <Image src="/moon.svg" alt="moon" width={30} height={30} />}
+          {isDarkMode ? <Image src="sun.svg" alt="sun" width={30} height={30} /> : <Image src="moon.svg" alt="moon" width={30} height={30} />}
         </button>
       </header>
 
@@ -66,7 +66,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
           >
-            <Image src="/linkedin.svg" alt="LinkedIn" width={20} height={20} />
+            <Image src="linkedin.svg" alt="LinkedIn" width={20} height={20} />
             {/* className="filter dark:invert" /> */}
             LinkedIn
           </a>
@@ -76,7 +76,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
           >
-            <Image src="/mail.svg" alt="LinkedIn" width={20} height={20} />
+            <Image src="mail.svg" alt="LinkedIn" width={20} height={20} />
             Correo
           </a>
           <a
@@ -85,7 +85,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 rounded-full py-2 px-6 text-sm sm:text-base hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-white transition-colors"
           >
-            <Image src="/github.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
+            <Image src="github.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
             GitHub
           </a>
         </div>
