@@ -19,13 +19,13 @@ export default function Home() {
   }, []);
 
   const projects = [
-    { id: 1, title: 'Proyecto 1', description: 'Descripción breve del proyecto 1', image: '/images/proyecto1.jpg' },
-    { id: 2, title: 'Proyecto 2', description: 'Descripción breve del proyecto 2', image: '/images/proyecto2.jpg' },
-    { id: 3, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
-    { id: 4, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
-    { id: 5, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
-    { id: 6, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
-    { id: 7, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: '/images/proyecto3.jpg' },
+    { id: 1, title: 'Proyecto 1', description: 'Descripción breve del proyecto 1', image: 'images/proyecto1.jpg' },
+    { id: 2, title: 'Proyecto 2', description: 'Descripción breve del proyecto 2', image: 'images/proyecto2.jpg' },
+    { id: 3, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: 'images/proyecto3.jpg' },
+    { id: 4, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: 'images/proyecto3.jpg' },
+    { id: 5, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: 'images/proyecto3.jpg' },
+    { id: 6, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: 'images/proyecto3.jpg' },
+    { id: 7, title: 'Proyecto 3', description: 'Descripción breve del proyecto 3', image: 'images/proyecto3.jpg' },
   ];
 
   return (
